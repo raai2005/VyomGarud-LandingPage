@@ -1,9 +1,4 @@
-/* stylelint-disable-next-line at-rule-no-unknown */
-@tailwind base;
-/* stylelint-disable-next-line at-rule-no-unknown */
-@tailwind components;
-/* stylelint-disable-next-line at-rule-no-unknown */
-@tailwind utilities;
+@import "tailwindcss";
 
 * {
   margin: 0;
@@ -11,54 +6,200 @@
   box-sizing: border-box;
 }
 
-html {
+/* html {
   scroll-behavior: smooth;
-  background-color: #0d0d0d;
-}
+  background-color: #1a1a1a;
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
+} */
 
 body {
-  background-color: #0d0d0d;
+  background-color: #1a1a1a;
   color: #ffffff;
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
+  width: 100vw;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
 }
 
 #__next {
-  background-color: #0d0d0d;
+  background-color: #1a1a1a;
   min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #0d0d0d;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ff7b00;
-  border-radius: 5px;
+  background: linear-gradient(180deg, #ff7b00, #cc6200);
+  border-radius: 6px;
+  border: 2px solid #0d0d0d;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #cc6200;
+  background: linear-gradient(180deg, #ff9633, #ff7b00);
 }
 
 /* Selection styling */
 ::selection {
-  background-color: #ff7b00;
+  background-color: rgba(255, 123, 0, 0.3);
   color: #ffffff;
 }
 
 ::-moz-selection {
-  background-color: #ff7b00;
+  background-color: rgba(255, 123, 0, 0.3);
   color: #ffffff;
 }
 
-svg {
+/* svg {
   width: 30px;
-  height: 30px;
+  height: 30px; */
+/* } */
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 123, 0, 0.5), 0 0 40px rgba(255, 123, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 123, 0, 0.8), 0 0 60px rgba(255, 123, 0, 0.5);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background-size: 1000px 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #ff9633 0%, #ff7b00 50%, #cc6200 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #ff9633 0%, #ff7b00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(255, 123, 0, 0.3);
+}
+
+/* Button effects */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-glow:hover::before {
+  width: 300px;
+  height: 300px;
 }
