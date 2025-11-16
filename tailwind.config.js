@@ -6,7 +6,25 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        charcoal: {
+          DEFAULT: '#1a1a1a',
+          light: '#2d2d2d',
+          dark: '#0d0d0d',
+        },
+        vyom: {
+          orange: '#ff7b00',
+          'orange-dark': '#cc6200',
+          'orange-light': '#ff9633',
+        },
+      },
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
